@@ -18,6 +18,7 @@ class Splash extends StatelessWidget {
               size: 36.0,
               color: Color(0xfffdfdfd),
             ),
+            const SizedBox(width: 15.0,),
             Text(
               "Itawe",
               style: TextStyle(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itawe/controllers/homeController.dart';
+import 'package:itawe/screens/home/home_page.dart';
 
 class Home extends StatelessWidget {
   final HomeController _homeController = Get.find();
@@ -8,10 +9,8 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
-        body: Container(
-          child: Center(
-            child: Text("Home"),
-          ),
+        body: SafeArea(
+          child: MainView(),
         ),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color(0xffffc41f),
@@ -21,7 +20,7 @@ class Home extends StatelessWidget {
           onTap: _homeController.setIndex,
           items: [
             _buildBottomNavigationBarItem(icon: Icons.home_outlined, tooltip: "Home"),
-            _buildBottomNavigationBarItem(icon: Icons.save_outlined, tooltip: "Saved books"),
+            _buildBottomNavigationBarItem(icon: Icons.bookmark_border_outlined, tooltip: "Saved books"),
             _buildBottomNavigationBarItem(icon: Icons.shopping_basket_outlined, tooltip: "Cart"),
             _buildBottomNavigationBarItem(icon: Icons.person_outline, tooltip: "Profile"),
           ],
