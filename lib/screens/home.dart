@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itawe/controllers/homeController.dart';
 import 'package:itawe/screens/appbars.dart';
+import 'package:itawe/screens/cart/cart.dart';
 import 'package:itawe/screens/home/home_page.dart';
 import 'package:itawe/screens/saved/saved_books.dart';
 
@@ -37,6 +38,8 @@ class Home extends StatelessWidget {
       return MainView();
     } else if (currentIndex == 1) {
       return SavedBooks();
+    } else if (currentIndex == 2) {
+      return Cart();
     } else {
       return Container(
         color: Colors.grey,
@@ -49,6 +52,8 @@ class Home extends StatelessWidget {
       return null;
     } else if (currentIndex == 1) {
       return savedAppBar();
+    } else if (currentIndex == 2) {
+      return cartAppBar();
     } else {
       return null;
     }
