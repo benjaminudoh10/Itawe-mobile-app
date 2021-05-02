@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itawe/controllers/homeController.dart';
+import 'package:itawe/screens/appbars.dart';
 import 'package:itawe/screens/home/home_page.dart';
+import 'package:itawe/screens/saved/saved_books.dart';
 
 class Home extends StatelessWidget {
   final HomeController _homeController = Get.find();
@@ -9,14 +11,15 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
+      appBar: _getAppBar(_homeController.index.value),
         body: SafeArea(
-          child: MainView(),
+          child: _getDisplayedWidget(_homeController.index.value),
         ),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color(0xffffc41f),
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          currentIndex: _homeController.initialIndex.value,
+          currentIndex: _homeController.index.value,
           onTap: _homeController.setIndex,
           items: [
             _buildBottomNavigationBarItem(icon: Icons.home_outlined, tooltip: "Home"),
@@ -27,6 +30,28 @@ class Home extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _getDisplayedWidget(int currentIndex) {
+    if (currentIndex == 0) {
+      return MainView();
+    } else if (currentIndex == 1) {
+      return SavedBooks();
+    } else {
+      return Container(
+        color: Colors.grey,
+      );
+    }
+  }
+
+  _getAppBar(int currentIndex) {
+    if (currentIndex == 0) {
+      return null;
+    } else if (currentIndex == 1) {
+      return savedAppBar();
+    } else {
+      return null;
+    }
   }
 
   BottomNavigationBarItem _buildBottomNavigationBarItem({IconData icon, String tooltip}) {

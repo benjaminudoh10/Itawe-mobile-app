@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itawe/constants/assetPaths.dart';
+import 'package:itawe/screens/stars.dart';
 
 class NewestBooks extends StatelessWidget {
   @override
@@ -74,7 +75,7 @@ class NewestBooks extends StatelessWidget {
                       ),
                       const SizedBox(height: 10.0,),
                       Row(
-                        children: _buildStars(stars),
+                        children: buildStars(stars),
                       ),
                       const SizedBox(height: 10.0,),
                       Text(
@@ -97,32 +98,5 @@ class NewestBooks extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  List<Widget> _buildStars(int number) {
-    List<Widget> stars = [];
-
-    int emptyStars = 5 - number;
-
-    for (int i = 0; i < number; i++) {
-      stars.add(
-        Icon(
-          Icons.star,
-          color: Color(0xffffd233),
-          size: 16.0,
-        )
-      );
-    }
-
-    for (int i = 0; i < emptyStars; i++) {
-      stars.add(
-        Icon(
-          Icons.star_border_rounded,
-          size: 16.0,
-        )
-      );
-    }
-
-    return stars;
   }
 }

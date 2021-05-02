@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  RxInt initialIndex = 0.obs;
+  RxInt index = 0.obs;
 
-  setIndex(int index) {
-    initialIndex.value = index;
+  setIndex(int i) {
+    index.value = i;
   }
 }
