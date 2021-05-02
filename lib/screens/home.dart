@@ -4,6 +4,7 @@ import 'package:itawe/controllers/homeController.dart';
 import 'package:itawe/screens/appbars.dart';
 import 'package:itawe/screens/cart/cart.dart';
 import 'package:itawe/screens/home/home_page.dart';
+import 'package:itawe/screens/profile/profile.dart';
 import 'package:itawe/screens/saved/saved_books.dart';
 
 class Home extends StatelessWidget {
@@ -27,7 +28,7 @@ class Home extends StatelessWidget {
           items: [
             _buildBottomNavigationBarItem(icon: Icons.home_outlined, tooltip: "Home"),
             _buildBottomNavigationBarItem(icon: Icons.bookmark_border_outlined, tooltip: "Saved books"),
-            _buildBottomNavigationBarItem(icon: Icons.shopping_basket_outlined, tooltip: "Cart"),
+            _buildBottomNavigationBarItem(icon: Icons.shopping_cart_outlined, tooltip: "Cart"),
             _buildBottomNavigationBarItem(icon: Icons.person_outline, tooltip: "Profile"),
           ],
         ),
@@ -42,6 +43,8 @@ class Home extends StatelessWidget {
       return SavedBooks();
     } else if (currentIndex == 2) {
       return Cart();
+    } else if (currentIndex == 3) {
+      return Profile();
     } else {
       return Container(
         color: Colors.grey,
@@ -56,8 +59,8 @@ class Home extends StatelessWidget {
       return savedAppBar();
     } else if (currentIndex == 2) {
       return cartAppBar();
-    } else {
-      return null;
+    } else if (currentIndex == 3) {
+      return profileAppBar();
     }
   }
 
