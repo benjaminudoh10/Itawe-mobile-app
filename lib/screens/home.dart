@@ -17,9 +17,11 @@ class Home extends StatelessWidget {
           child: _getDisplayedWidget(_homeController.index.value),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Color(0xffffc41f),
           showSelectedLabels: false,
           showUnselectedLabels: false,
+          selectedItemColor: Color(0xffffd233),
+          unselectedItemColor: Color(0xffc7c7c7),
+          type: BottomNavigationBarType.fixed,
           currentIndex: _homeController.index.value,
           onTap: _homeController.setIndex,
           items: [
@@ -63,13 +65,11 @@ class Home extends StatelessWidget {
     return BottomNavigationBarItem(
       activeIcon: Icon(
         icon,
-        color: Color(0xffffd233),
         size: 36.0,
       ),
       icon: Icon(
         icon,
         size: 36.0,
-        color: Color(0xffc7c7c7),
       ),
       label: "",
       tooltip: tooltip

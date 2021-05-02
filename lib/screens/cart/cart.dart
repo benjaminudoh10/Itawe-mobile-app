@@ -5,29 +5,54 @@ import 'package:itawe/screens/stars.dart';
 class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Color(0xffffffff),
+    return Column(
+      children: [
+        Expanded(
+          child: SingleChildScrollView(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xffffffff),
+              ),
+              padding: EdgeInsets.all(25.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildBook("book-1.png", "Stay with me", "Ayobami Adebayo", 4, 15),
+                  const Divider(thickness: 1.5,),
+                  _buildBook("book-2.png", "The Death of Vivek Oji", "Akwaeke Emezi", 3, 25.30),
+                  const Divider(thickness: 1.5,),
+                  _buildBook("book-1.png", "The Spider King's Daughter", "Chibundu Onuzo", 5, 11.09),
+                  const Divider(thickness: 1.5,),
+                  _buildBook("book-3.png", "My Thoughts in a Flash", "Amanda Speaks", 2, 123),
+                  const Divider(thickness: 1.5,),
+                  _buildBook("book-2.png", "The Death of Vivek Oji", "Akwaeke Emezi", 3, 25.30),
+                  const Divider(thickness: 1.5,),
+                  _buildBook("book-1.png", "The Spider King's Daughter", "Chibundu Onuzo", 5, 11.09),
+                ],
+              ),
+            ),
+          ),
         ),
-        padding: EdgeInsets.all(25.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildBook("book-1.png", "Stay with me", "Ayobami Adebayo", 4, 15),
-            const Divider(thickness: 1.5,),
-            _buildBook("book-2.png", "The Death of Vivek Oji", "Akwaeke Emezi", 3, 25.30),
-            const Divider(thickness: 1.5,),
-            _buildBook("book-1.png", "The Spider King's Daughter", "Chibundu Onuzo", 5, 11.09),
-            const Divider(thickness: 1.5,),
-            _buildBook("book-3.png", "My Thoughts in a Flash", "Amanda Speaks", 2, 123),
-            const Divider(thickness: 1.5,),
-            _buildBook("book-2.png", "The Death of Vivek Oji", "Akwaeke Emezi", 3, 25.30),
-            const Divider(thickness: 1.5,),
-            _buildBook("book-1.png", "The Spider King's Daughter", "Chibundu Onuzo", 5, 11.09),
-          ],
+        InkWell(
+          onTap: () {},
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: EdgeInsets.all(15.0),
+            child: Center(
+              child: Text(
+                "Check out",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.0
+                ),
+              ),
+            ),
+            decoration: BoxDecoration(
+              color: Color(0xffffd233),
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 
